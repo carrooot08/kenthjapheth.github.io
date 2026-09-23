@@ -13,15 +13,15 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             color: #3d2b20;
             background: #f6f1e8;
             line-height: 1.7;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         nav {
@@ -33,31 +33,31 @@
             padding: 20px 7%;
         }
 
-        nav .nav-container {
+        .nav-container {
             max-width: 1200px;
             margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 30px;
         }
 
-        nav .logo {
+        .nav-logo {
             font-family: Georgia, serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
-            color: #3d2b20;
-            text-decoration: none;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
-            gap: 28px;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
         nav a {
-            color: #3d2b20;
             text-decoration: none;
+            color: #3d2b20;
             font-size: 14px;
         }
 
@@ -69,7 +69,7 @@
             padding: 100px 7%;
         }
 
-        .container {
+        .section-container {
             max-width: 1200px;
             margin: auto;
         }
@@ -78,17 +78,27 @@
         h2,
         h3 {
             font-family: Georgia, serif;
-            color: #3d2b20;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: clamp(52px, 7vw, 90px);
+            line-height: 1.05;
+            margin: 10px 0 20px;
         }
 
         h2 {
-            font-size: clamp(40px, 6vw, 64px);
+            font-size: clamp(40px, 5vw, 64px);
             line-height: 1.1;
             margin-bottom: 35px;
         }
 
+        h3 {
+            font-size: 25px;
+        }
+
         /* =========================
-           HOME
+           HERO
         ========================= */
 
         #home {
@@ -108,26 +118,22 @@
             align-items: center;
         }
 
-        .hero-small {
-            font-size: 18px;
-            margin-bottom: 10px;
+        .hero-text {
+            animation: fadeInUp 1s ease forwards;
         }
 
-        .hero h1 {
-            font-size: clamp(52px, 8vw, 88px);
-            line-height: 1;
-            margin-bottom: 20px;
+        .hero-text .small-text {
+            font-family: Georgia, serif;
+            font-size: 24px;
         }
 
         .hero-subtitle {
-            font-family: Georgia, serif;
-            font-size: 27px;
+            font-size: 21px;
             margin-bottom: 25px;
         }
 
         .hero-description {
             max-width: 650px;
-            font-size: 17px;
             margin-bottom: 35px;
         }
 
@@ -137,37 +143,31 @@
             flex-wrap: wrap;
         }
 
-        .button {
+        .btn {
             display: inline-block;
-            padding: 13px 24px;
-            border-radius: 30px;
+            padding: 13px 23px;
+            border: 1px solid #3d2b20;
             text-decoration: none;
-            font-size: 14px;
-            transition: 0.2s ease;
+            color: #3d2b20;
+            transition: all 0.3s ease;
         }
 
-        .button-primary {
+        .btn:hover {
             background: #3d2b20;
             color: #f6f1e8;
-        }
-
-        .button-secondary {
-            border: 1px solid #3d2b20;
-            color: #3d2b20;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
         .hero-photo {
             max-width: 430px;
-            width: 100%;
             height: 520px;
             margin-left: auto;
             border-radius: 190px 190px 30px 30px;
-            overflow: hidden;
             background: #d9c9b6;
+            overflow: hidden;
+
+            animation: fadeInRight 1s ease 0.2s forwards;
+            opacity: 0;
         }
 
         .hero-photo img {
@@ -177,37 +177,58 @@
         }
 
         /* =========================
+           HERO ANIMATIONS
+        ========================= */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* =========================
            MY STORY
         ========================= */
 
-        #my-story {
-            background: #f6f1e8;
-        }
-
         .story {
             display: grid;
-            grid-template-columns: 1fr 0.8fr;
-            gap: 80px;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
             align-items: center;
         }
 
         .story-text p {
             margin-bottom: 20px;
-            font-size: 17px;
         }
 
         .story-image {
             max-width: 420px;
-            width: 100%;
             margin-left: auto;
-            border-radius: 30px;
-            overflow: hidden;
         }
 
         .story-image img {
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 30px;
             object-fit: contain;
         }
 
@@ -216,19 +237,25 @@
         ========================= */
 
         #what-i-do {
-            background: #efe5d5;
+            background: #e8dccb;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 25px;
         }
 
         .service-card {
             background: #f6f1e8;
             padding: 35px;
             border-radius: 22px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(61, 43, 32, 0.08);
         }
 
         .service-card:last-child {
@@ -236,83 +263,61 @@
         }
 
         .service-card h3 {
-            font-size: 24px;
             margin-bottom: 12px;
-        }
-
-        .service-card p {
-            font-size: 15px;
         }
 
         /* =========================
            EXPERIENCE
         ========================= */
 
-        #experience {
-            background: #f6f1e8;
-        }
-
         .experience-item {
             display: grid;
             grid-template-columns: 250px 1fr;
             gap: 50px;
             padding: 55px 0;
-            border-top: 1px solid #d8cbbb;
+            border-top: 1px solid #ddd0c0;
         }
 
         .experience-item:last-child {
-            border-bottom: 1px solid #d8cbbb;
+            border-bottom: 1px solid #ddd0c0;
         }
 
         .experience-date {
-            font-size: 14px;
-            color: #806d5c;
-        }
-
-        .experience-content h3 {
-            font-size: 30px;
-            margin-bottom: 5px;
+            font-family: Georgia, serif;
+            font-size: 18px;
         }
 
         .experience-company {
-            font-family: Georgia, serif;
-            font-size: 18px;
-            margin-bottom: 20px;
+            margin: 5px 0 20px;
+            font-size: 17px;
         }
 
         .experience-description {
-            max-width: 850px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
         }
 
         .tag {
-            padding: 6px 12px;
-            border: 1px solid #cdbca9;
-            border-radius: 20px;
-            font-size: 12px;
+            border: 1px solid #c9b9a7;
+            border-radius: 50px;
+            padding: 5px 12px;
+            font-size: 13px;
         }
-
-        /* =========================
-           GENERAL EXPERIENCE GALLERY
-        ========================= */
 
         .experience-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-            margin-top: 25px;
         }
 
         .experience-photo {
             width: 100%;
-            height: 260px;
             overflow: hidden;
             border-radius: 22px;
             background: #e8dccb;
@@ -321,12 +326,10 @@
         .experience-photo img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            display: block;
         }
 
-        /* =========================
-           FINANCIAL & ADMINISTRATIVE
-        ========================= */
+        /* Financial Gallery */
 
         .financial-gallery .experience-photo {
             aspect-ratio: 4 / 3;
@@ -342,9 +345,7 @@
             object-fit: cover;
         }
 
-        /* =========================
-           SEMINARY
-        ========================= */
+        /* Seminary Gallery */
 
         .seminary-gallery .experience-photo {
             aspect-ratio: 4 / 3;
@@ -360,17 +361,13 @@
             object-fit: cover;
         }
 
-        /* =========================
-           BUILDING MAINTENANCE
-        ========================= */
+        /* Maintenance */
 
         .maintenance-photo {
             max-width: 900px;
             height: 420px;
             border-radius: 22px;
             overflow: hidden;
-            margin-top: 25px;
-            background: #e8dccb;
         }
 
         .maintenance-photo img {
@@ -379,9 +376,7 @@
             object-fit: cover;
         }
 
-        /* =========================
-           FULL-TIME MISSIONARY
-        ========================= */
+        /* Missionary Gallery */
 
         .missionary-gallery {
             display: grid;
@@ -408,49 +403,43 @@
         ========================= */
 
         #skills {
-            background: #efe5d5;
+            background: #e8dccb;
         }
 
         .skills-intro {
             max-width: 700px;
             margin-bottom: 40px;
-            font-size: 17px;
         }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 25px;
         }
 
-        .skills-card {
+        .skill-card {
             background: #f6f1e8;
             padding: 35px;
             border-radius: 22px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .skills-card h3 {
-            font-size: 25px;
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(61, 43, 32, 0.08);
+        }
+
+        .skill-card h3 {
             margin-bottom: 25px;
         }
 
-        .skill-item {
-            margin-bottom: 22px;
+        .skill {
+            margin-bottom: 20px;
         }
 
-        .skill-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .skill-item strong {
+        .skill strong {
             display: block;
-            font-family: Georgia, serif;
-            font-size: 17px;
             margin-bottom: 5px;
-        }
-
-        .skill-item p {
-            font-size: 14px;
         }
 
         /* =========================
@@ -459,10 +448,6 @@
 
         #contact {
             background: #3d2b20;
-            color: #f6f1e8;
-        }
-
-        #contact h2 {
             color: #f6f1e8;
         }
 
@@ -515,35 +500,48 @@
             color: #f6f1e8;
             text-align: center;
             padding: 25px 7%;
-            border-top: 1px solid #594437;
+            border-top: 1px solid rgba(246, 241, 232, 0.2);
             font-size: 13px;
         }
 
         /* =========================
-           RESPONSIVE - TABLET
+           RESPONSIVE
         ========================= */
 
         @media (max-width: 900px) {
 
-            nav .nav-container {
+            nav {
+                padding: 18px 6%;
+            }
+
+            .nav-container {
                 flex-direction: column;
-                gap: 15px;
+                align-items: flex-start;
             }
 
             nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
                 gap: 15px;
             }
 
-            .hero,
+            section {
+                padding: 75px 6%;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-photo {
+                margin: auto;
+            }
+
             .story {
                 grid-template-columns: 1fr;
             }
 
-            .hero-photo,
             .story-image {
-                margin: 0 auto;
+                margin: auto;
             }
 
             .services-grid {
@@ -554,13 +552,9 @@
                 grid-column: span 1;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
             .experience-item {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
             }
 
             .experience-gallery {
@@ -571,14 +565,14 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-details {
                 grid-template-columns: 1fr;
             }
         }
-
-        /* =========================
-           RESPONSIVE - MOBILE
-        ========================= */
 
         @media (max-width: 600px) {
 
@@ -586,7 +580,7 @@
                 padding: 65px 6%;
             }
 
-            .hero h1 {
+            h1 {
                 font-size: 52px;
             }
 
@@ -624,6 +618,22 @@
                 height: 300px;
             }
         }
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 
@@ -634,16 +644,16 @@
     <nav>
         <div class="nav-container">
 
-            <a href="#home" class="logo">
+            <div class="nav-logo">
                 Kenth Manuel
-            </a>
+            </div>
 
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#my-story">My Story</a></li>
                 <li><a href="#what-i-do">What I Can Do</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills & Tools</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
@@ -657,19 +667,15 @@
 
         <div class="hero">
 
-            <div class="hero-content">
+            <div class="hero-text">
 
-                <div class="hero-small">
-                    Hi,
-                </div>
+                <p class="small-text">Hi,</p>
 
-                <h1>
-                    I'm Kenth Manuel.
-                </h1>
+                <h1>I'm Kenth Manuel.</h1>
 
-                <div class="hero-subtitle">
+                <p class="hero-subtitle">
                     Financial & Administrative Support
-                </div>
+                </p>
 
                 <p class="hero-description">
                     With two years of full-time service experience and over a year supporting financial and administrative work, I've built strong skills in Excel, Power BI, communication, and keeping things organized and on track.
@@ -677,11 +683,11 @@
 
                 <div class="hero-buttons">
 
-                    <a href="#experience" class="button button-primary">
+                    <a href="#experience" class="btn">
                         View My Experience
                     </a>
 
-                    <a href="#contact" class="button button-secondary">
+                    <a href="#contact" class="btn">
                         Let's Connect
                     </a>
 
@@ -689,12 +695,10 @@
 
             </div>
 
+
             <div class="hero-photo">
 
-                <img
-                    src="Him.JPG"
-                    alt="Kenth Manuel"
-                >
+                <img src="Him.JPG" alt="Kenth Manuel">
 
             </div>
 
@@ -707,38 +711,38 @@
 
     <section id="my-story">
 
-        <div class="container story">
+        <div class="section-container">
 
-            <div class="story-text">
+            <div class="story">
 
-                <h2>
-                    My Story
-                </h2>
+                <div class="story-text">
 
-                <p>
-                    My experience has taught me that good work often comes down to the details.
-                </p>
+                    <h2>My Story</h2>
 
-                <p>
-                    I developed strong communication, organization, and time-management skills through two years of full-time service work. I later brought those skills into an office environment, where I gained hands-on experience supporting financial and administrative operations.
-                </p>
+                    <p>
+                        My experience has taught me that good work often comes down to the details.
+                    </p>
 
-                <p>
-                    At Sto. Nino De Cebu Finance Corp., I worked with financial records, tracked budgets, handled transactions, supported customers, and used tools such as Microsoft Excel and Power BI to keep information organized and accurate.
-                </p>
+                    <p>
+                        I developed strong communication, organization, and time-management skills through two years of full-time service work. I later brought those skills into an office environment, where I gained hands-on experience supporting financial and administrative operations.
+                    </p>
 
-                <p>
-                    Today, I'm looking to build on that experience in a Financial & Administrative Support role where reliability, accuracy, and organization matter.
-                </p>
+                    <p>
+                        At Sto. Nino De Cebu Finance Corp., I worked with financial records, tracked budgets, handled transactions, supported customers, and used tools such as Microsoft Excel and Power BI to keep information organized and accurate.
+                    </p>
 
-            </div>
+                    <p>
+                        Today, I'm looking to build on that experience in a Financial & Administrative Support role where reliability, accuracy, and organization matter.
+                    </p>
 
-            <div class="story-image">
+                </div>
 
-                <img
-                    src="my story.jpeg"
-                    alt="Kenth Manuel"
-                >
+
+                <div class="story-image">
+
+                    <img src="my story.jpeg" alt="Kenth working">
+
+                </div>
 
             </div>
 
@@ -751,19 +755,15 @@
 
     <section id="what-i-do">
 
-        <div class="container">
+        <div class="section-container">
 
-            <h2>
-                What I Can Do
-            </h2>
+            <h2>What I Can Do</h2>
 
             <div class="services-grid">
 
                 <div class="service-card">
 
-                    <h3>
-                        Financial Support
-                    </h3>
+                    <h3>Financial Support</h3>
 
                     <p>
                         I can help keep financial information organized and accurate through transaction tracking, budget monitoring, reconciliation, and documentation.
@@ -771,11 +771,10 @@
 
                 </div>
 
+
                 <div class="service-card">
 
-                    <h3>
-                        Data & Reporting
-                    </h3>
+                    <h3>Data & Reporting</h3>
 
                     <p>
                         Comfortable working with Microsoft Excel and Power BI to organize information, maintain records, and support reporting.
@@ -783,11 +782,10 @@
 
                 </div>
 
+
                 <div class="service-card">
 
-                    <h3>
-                        Administrative Support
-                    </h3>
+                    <h3>Administrative Support</h3>
 
                     <p>
                         From scheduling and email management to documentation and coordination, I can help keep day-to-day operations running smoothly.
@@ -795,11 +793,10 @@
 
                 </div>
 
+
                 <div class="service-card">
 
-                    <h3>
-                        Customer Support
-                    </h3>
+                    <h3>Customer Support</h3>
 
                     <p>
                         Clear communication and a professional approach help me handle customer concerns and work effectively with different people.
@@ -807,11 +804,10 @@
 
                 </div>
 
+
                 <div class="service-card">
 
-                    <h3>
-                        Detail-Focused Work
-                    </h3>
+                    <h3>Detail-Focused Work</h3>
 
                     <p>
                         I pay attention to the small things, especially when working with records, confidential information, and tasks where accuracy matters.
@@ -830,30 +826,33 @@
 
     <section id="experience">
 
-        <div class="container">
+        <div class="section-container">
 
-            <h2>
-                My Experience
-            </h2>
+            <h2>My Experience</h2>
 
 
-            <!-- FINANCIAL & ADMINISTRATIVE SUPPORT -->
+            <!-- FINANCIAL -->
 
             <div class="experience-item">
 
-                <div class="experience-date">
-                    Feb 2025 – Feb 2026
+                <div>
+
+                    <div class="experience-date">
+                        Feb 2025 – Feb 2026
+                    </div>
+
                 </div>
 
-                <div class="experience-content">
+
+                <div>
 
                     <h3>
                         Financial & Administrative Support
                     </h3>
 
-                    <div class="experience-company">
+                    <p class="experience-company">
                         Sto. Nino De Cebu Finance Corp.
-                    </div>
+                    </p>
 
                     <p class="experience-description">
                         Kept a department's finances accurate and its operations running — reconciling transactions, tracking budgets against actuals, and flagging variances early — while also handling scheduling, correspondence, and customer support.
@@ -861,40 +860,30 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            Budget Tracking
-                        </span>
-
-                        <span class="tag">
-                            Excel & Power BI
-                        </span>
-
-                        <span class="tag">
-                            Confidential Data
-                        </span>
-
-                        <span class="tag">
-                            Customer Support
-                        </span>
+                        <span class="tag">Budget Tracking</span>
+                        <span class="tag">Excel & Power BI</span>
+                        <span class="tag">Confidential Data</span>
+                        <span class="tag">Customer Support</span>
 
                     </div>
+
 
                     <div class="experience-gallery financial-gallery">
 
                         <div class="experience-photo">
-                            <img src="work 1st.jpeg" alt="Financial and administrative work">
+                            <img src="work 1st.jpeg" alt="Financial work">
                         </div>
 
                         <div class="experience-photo">
-                            <img src="work 2nd.jpeg" alt="Financial and administrative work">
+                            <img src="work 2nd.jpeg" alt="Financial work">
                         </div>
 
                         <div class="experience-photo">
-                            <img src="work 3rd.jpeg" alt="Financial and administrative work">
+                            <img src="work 3rd.jpeg" alt="Financial work">
                         </div>
 
                         <div class="experience-photo">
-                            <img src="work 4th.jpeg" alt="Financial and administrative work">
+                            <img src="work 4th.jpeg" alt="Financial work">
                         </div>
 
                     </div>
@@ -904,23 +893,28 @@
             </div>
 
 
-            <!-- SEMINARY TEACHER OF YOUTH -->
+            <!-- SEMINARY -->
 
             <div class="experience-item">
 
-                <div class="experience-date">
-                    Sept 2026 – Present
+                <div>
+
+                    <div class="experience-date">
+                        Sept 2026 – Present
+                    </div>
+
                 </div>
 
-                <div class="experience-content">
+
+                <div>
 
                     <h3>
                         Seminary Teacher of Youth
                     </h3>
 
-                    <div class="experience-company">
+                    <p class="experience-company">
                         The Church of Jesus Christ of Latter-day Saints
-                    </div>
+                    </p>
 
                     <p class="experience-description">
                         Plans and leads weekly educational classes for youth, adapting lessons to different backgrounds and needs. This role involves weekly lesson planning, classroom facilitation, communication, group coordination, and adapting plans when circumstances change.
@@ -928,40 +922,30 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            Communication
-                        </span>
-
-                        <span class="tag">
-                            Planning
-                        </span>
-
-                        <span class="tag">
-                            Facilitation
-                        </span>
-
-                        <span class="tag">
-                            Adaptability
-                        </span>
+                        <span class="tag">Communication</span>
+                        <span class="tag">Planning</span>
+                        <span class="tag">Facilitation</span>
+                        <span class="tag">Adaptability</span>
 
                     </div>
+
 
                     <div class="experience-gallery seminary-gallery">
 
                         <div class="experience-photo">
-                            <img src="sem 1.jpeg" alt="Seminary teaching experience">
+                            <img src="sem 1.jpeg" alt="Seminary teaching">
                         </div>
 
                         <div class="experience-photo">
-                            <img src="sem 2.jpeg" alt="Seminary teaching experience">
+                            <img src="sem 2.jpeg" alt="Seminary teaching">
                         </div>
 
                         <div class="experience-photo">
-                            <img src="FSY.jpg" alt="Seminary teaching experience">
+                            <img src="FSY.jpg" alt="FSY experience">
                         </div>
 
                         <div class="experience-photo">
-                            <img src="fsy 1.jpg" alt="Seminary teaching experience">
+                            <img src="fsy 1.jpg" alt="FSY experience">
                         </div>
 
                     </div>
@@ -971,23 +955,28 @@
             </div>
 
 
-            <!-- BUILDING MAINTENANCE & CLEANING -->
+            <!-- MAINTENANCE -->
 
             <div class="experience-item">
 
-                <div class="experience-date">
-                    June 2024 – Dec 2024
+                <div>
+
+                    <div class="experience-date">
+                        June 2024 – Dec 2024
+                    </div>
+
                 </div>
 
-                <div class="experience-content">
+
+                <div>
 
                     <h3>
                         Building Maintenance & Cleaning
                     </h3>
 
-                    <div class="experience-company">
+                    <p class="experience-company">
                         Facility Operations
-                    </div>
+                    </p>
 
                     <p class="experience-description">
                         Maintained facilities through consistent, detail-focused work while following standards for cleanliness, organization, and reliability. The role required good time management, attention to detail, and the ability to complete routine responsibilities consistently.
@@ -995,26 +984,16 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            Reliability
-                        </span>
-
-                        <span class="tag">
-                            Attention to Detail
-                        </span>
-
-                        <span class="tag">
-                            Time Management
-                        </span>
+                        <span class="tag">Reliability</span>
+                        <span class="tag">Attention to Detail</span>
+                        <span class="tag">Time Management</span>
 
                     </div>
 
+
                     <div class="maintenance-photo">
 
-                        <img
-                            src="faci main.jpeg"
-                            alt="Building maintenance and cleaning experience"
-                        >
+                        <img src="faci main.jpeg" alt="Facility maintenance work">
 
                     </div>
 
@@ -1023,23 +1002,28 @@
             </div>
 
 
-            <!-- FULL-TIME MISSIONARY -->
+            <!-- MISSIONARY -->
 
             <div class="experience-item">
 
-                <div class="experience-date">
-                    May 2022 – May 2024
+                <div>
+
+                    <div class="experience-date">
+                        May 2022 – May 2024
+                    </div>
+
                 </div>
 
-                <div class="experience-content">
+
+                <div>
 
                     <h3>
                         Full-Time Missionary
                     </h3>
 
-                    <div class="experience-company">
+                    <p class="experience-company">
                         The Church of Jesus Christ of Latter-day Saints
-                    </div>
+                    </p>
 
                     <p class="experience-description">
                         Managed a demanding daily schedule of appointments, goals, and responsibilities while working with people from diverse backgrounds. Developed strong communication, teamwork, scheduling, and adaptability skills while balancing multiple priorities and adjusting quickly when plans changed.
@@ -1047,56 +1031,31 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            Scheduling
-                        </span>
-
-                        <span class="tag">
-                            Adaptability
-                        </span>
-
-                        <span class="tag">
-                            Teamwork
-                        </span>
-
-                        <span class="tag">
-                            Communication
-                        </span>
-
-                        <span class="tag">
-                            Planning
-                        </span>
+                        <span class="tag">Scheduling</span>
+                        <span class="tag">Adaptability</span>
+                        <span class="tag">Teamwork</span>
+                        <span class="tag">Communication</span>
+                        <span class="tag">Planning</span>
 
                     </div>
+
 
                     <div class="experience-gallery missionary-gallery">
 
                         <div class="experience-photo">
-                            <img
-                                src="First pic.jpeg"
-                                alt="Full-Time Missionary experience"
-                            >
+                            <img src="First pic.jpeg" alt="Missionary experience">
                         </div>
 
                         <div class="experience-photo">
-                            <img
-                                src="2nd.jpeg"
-                                alt="Full-Time Missionary experience"
-                            >
+                            <img src="2nd.jpeg" alt="Missionary experience">
                         </div>
 
                         <div class="experience-photo">
-                            <img
-                                src="3rd.jpeg"
-                                alt="Full-Time Missionary experience"
-                            >
+                            <img src="3rd.jpeg" alt="Missionary experience">
                         </div>
 
                         <div class="experience-photo">
-                            <img
-                                src="4th.jpeg"
-                                alt="Full-Time Missionary experience"
-                            >
+                            <img src="4th.jpeg" alt="Missionary experience">
                         </div>
 
                     </div>
@@ -1110,36 +1069,30 @@
     </section>
 
 
-    <!-- SKILLS & TOOLS -->
+    <!-- SKILLS -->
 
     <section id="skills">
 
-        <div class="container">
+        <div class="section-container">
 
-            <h2>
-                Skills & Tools
-            </h2>
+            <h2>Skills & Tools</h2>
 
             <p class="skills-intro">
                 Tools and skills I use to keep information organized, communicate clearly, and support day-to-day operations.
             </p>
 
-            <div class="skills-grid">
 
+            <div class="skills-grid">
 
                 <!-- FINANCIAL & DATA -->
 
-                <div class="skills-card">
+                <div class="skill-card">
 
-                    <h3>
-                        Financial & Data
-                    </h3>
+                    <h3>Financial & Data</h3>
 
-                    <div class="skill-item">
+                    <div class="skill">
 
-                        <strong>
-                            Microsoft Excel
-                        </strong>
+                        <strong>Microsoft Excel</strong>
 
                         <p>
                             Used for organizing data, tracking transactions, monitoring budgets, and maintaining accurate records.
@@ -1147,11 +1100,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Power BI
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Power BI</strong>
 
                         <p>
                             Used to organize and present information in a clear and useful way for reporting and analysis.
@@ -1159,11 +1111,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Data Entry & Documentation
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Data Entry & Documentation</strong>
 
                         <p>
                             Comfortable maintaining records carefully and keeping information organized and up to date.
@@ -1171,11 +1122,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Confidentiality
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Confidentiality</strong>
 
                         <p>
                             Understands the importance of handling financial and customer information responsibly.
@@ -1186,19 +1136,15 @@
                 </div>
 
 
-                <!-- COMMUNICATION & COORDINATION -->
+                <!-- COMMUNICATION -->
 
-                <div class="skills-card">
+                <div class="skill-card">
 
-                    <h3>
-                        Communication & Coordination
-                    </h3>
+                    <h3>Communication & Coordination</h3>
 
-                    <div class="skill-item">
+                    <div class="skill">
 
-                        <strong>
-                            Email & Calendar Management
-                        </strong>
+                        <strong>Email & Calendar Management</strong>
 
                         <p>
                             Can manage schedules, correspondence, appointments, and day-to-day coordination.
@@ -1206,11 +1152,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Customer Service
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Customer Service</strong>
 
                         <p>
                             Communicates professionally and works to understand and respond to customer concerns.
@@ -1218,11 +1163,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Communication
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Communication</strong>
 
                         <p>
                             Comfortable communicating with different people and adapting communication to the situation.
@@ -1230,11 +1174,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Negotiation
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Negotiation</strong>
 
                         <p>
                             Uses clear communication and a practical approach when working through different needs and situations.
@@ -1247,17 +1190,13 @@
 
                 <!-- OPERATIONS -->
 
-                <div class="skills-card">
+                <div class="skill-card">
 
-                    <h3>
-                        Operations
-                    </h3>
+                    <h3>Operations</h3>
 
-                    <div class="skill-item">
+                    <div class="skill">
 
-                        <strong>
-                            Problem-Solving & Adaptability
-                        </strong>
+                        <strong>Problem-Solving & Adaptability</strong>
 
                         <p>
                             Able to adjust plans and respond to changing situations while keeping responsibilities on track.
@@ -1265,11 +1204,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Time Management & Organization
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Time Management & Organization</strong>
 
                         <p>
                             Experienced in managing schedules, priorities, and multiple responsibilities.
@@ -1277,11 +1215,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Teamwork & Collaboration
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Teamwork & Collaboration</strong>
 
                         <p>
                             Works effectively with others and contributes to shared goals and responsibilities.
@@ -1289,11 +1226,10 @@
 
                     </div>
 
-                    <div class="skill-item">
 
-                        <strong>
-                            Multitasking & Prioritization
-                        </strong>
+                    <div class="skill">
+
+                        <strong>Multitasking & Prioritization</strong>
 
                         <p>
                             Comfortable handling multiple tasks while identifying what needs attention first.
@@ -1314,23 +1250,20 @@
 
     <section id="contact">
 
-        <div class="container contact-content">
+        <div class="section-container contact-content">
 
-            <h2>
-                Let's Work Together
-            </h2>
+            <h2>Let's Work Together</h2>
 
             <p class="contact-text">
                 I'm open to opportunities where I can contribute my experience in financial administration, data handling, customer support, and day-to-day operations. If you're looking for someone who is organized, detail-focused, adaptable, and dependable, I'd be happy to connect.
             </p>
 
+
             <div class="contact-details">
 
                 <div class="contact-item">
 
-                    <strong>
-                        Email
-                    </strong>
+                    <strong>Email</strong>
 
                     <a href="mailto:kenth.manuel11@gmail.com">
                         kenth.manuel11@gmail.com
@@ -1338,11 +1271,10 @@
 
                 </div>
 
+
                 <div class="contact-item">
 
-                    <strong>
-                        Phone
-                    </strong>
+                    <strong>Phone</strong>
 
                     <span>
                         09481226494
@@ -1350,11 +1282,10 @@
 
                 </div>
 
+
                 <div class="contact-item">
 
-                    <strong>
-                        Location
-                    </strong>
+                    <strong>Location</strong>
 
                     <span>
                         Dagupan City, Philippines
@@ -1372,7 +1303,9 @@
     <!-- FOOTER -->
 
     <footer>
+
         © 2026 Kenth Manuel. All rights reserved.
+
     </footer>
 
 </body>
