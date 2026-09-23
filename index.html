@@ -7,6 +7,7 @@
     <title>Kenth Manuel | Financial & Administrative Support</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -53,6 +54,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
 
         /* =========================
            NAVIGATION
@@ -101,8 +103,9 @@
             opacity: 0.6;
         }
 
+
         /* =========================
-           HERO
+           HOME
         ========================= */
 
         #home {
@@ -187,6 +190,7 @@
             object-fit: cover;
         }
 
+
         /* =========================
            MY STORY
         ========================= */
@@ -215,6 +219,7 @@
             height: auto;
             object-fit: contain;
         }
+
 
         /* =========================
            WHAT I CAN DO
@@ -251,6 +256,7 @@
             font-size: 25px;
             margin-bottom: 15px;
         }
+
 
         /* =========================
            EXPERIENCE
@@ -307,7 +313,9 @@
             gap: 15px;
         }
 
+
         /* Financial gallery */
+
         .financial-gallery .experience-photo {
             aspect-ratio: 4 / 3;
             height: auto;
@@ -322,7 +330,9 @@
             object-fit: cover;
         }
 
+
         /* Seminary gallery */
+
         .seminary-gallery .experience-photo {
             aspect-ratio: 4 / 3;
             height: auto;
@@ -337,7 +347,9 @@
             object-fit: cover;
         }
 
+
         /* Missionary gallery */
+
         .missionary-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -358,7 +370,9 @@
             object-fit: cover;
         }
 
+
         /* Maintenance */
+
         .maintenance-photo {
             max-width: 900px;
             height: 420px;
@@ -371,6 +385,7 @@
             height: 100%;
             object-fit: cover;
         }
+
 
         /* =========================
            SKILLS
@@ -416,6 +431,7 @@
             margin-bottom: 5px;
         }
 
+
         /* =========================
            CONTACT
         ========================= */
@@ -453,6 +469,7 @@
             text-decoration: underline;
         }
 
+
         /* =========================
            FOOTER
         ========================= */
@@ -466,8 +483,9 @@
             font-size: 14px;
         }
 
+
         /* =========================
-           HERO ANIMATIONS
+           HOME ANIMATIONS
         ========================= */
 
         @keyframes fadeInUp {
@@ -494,29 +512,35 @@
             }
         }
 
+
         /* =========================
-           NAVIGATION ANIMATIONS
-           These replay every time
-           a navigation link is clicked.
+           NAVIGATION-TRIGGERED
+           ANIMATIONS
         ========================= */
 
-        .animate-left {
-            animation: slideFromLeft 0.8s ease both;
+        /*
+           Important:
+           Nothing is hidden by default.
+
+           The animation class is added only when
+           a navigation link is clicked.
+
+           This means the content remains visible
+           after the animation finishes.
+        */
+
+
+        /* ---------- MY STORY ---------- */
+
+        .story-text.play-animation {
+            animation: storyTextFromLeft 0.8s ease both;
         }
 
-        .animate-right {
-            animation: slideFromRight 0.8s ease both;
+        .story-image.play-animation {
+            animation: storyPhotoFromRight 0.8s ease 0.15s both;
         }
 
-        .animate-up {
-            animation: slideFromBottom 0.8s ease both;
-        }
-
-        .animate-zoom {
-            animation: zoomIn 0.8s ease both;
-        }
-
-        @keyframes slideFromLeft {
+        @keyframes storyTextFromLeft {
             from {
                 opacity: 0;
                 transform: translateX(-60px);
@@ -528,7 +552,7 @@
             }
         }
 
-        @keyframes slideFromRight {
+        @keyframes storyPhotoFromRight {
             from {
                 opacity: 0;
                 transform: translateX(60px);
@@ -540,10 +564,37 @@
             }
         }
 
-        @keyframes slideFromBottom {
+
+        /* ---------- WHAT I CAN DO ---------- */
+
+        .service-card.play-animation {
+            animation: cardRise 0.7s ease both;
+        }
+
+        .service-card:nth-child(1).play-animation {
+            animation-delay: 0s;
+        }
+
+        .service-card:nth-child(2).play-animation {
+            animation-delay: 0.12s;
+        }
+
+        .service-card:nth-child(3).play-animation {
+            animation-delay: 0.24s;
+        }
+
+        .service-card:nth-child(4).play-animation {
+            animation-delay: 0.36s;
+        }
+
+        .service-card:nth-child(5).play-animation {
+            animation-delay: 0.48s;
+        }
+
+        @keyframes cardRise {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(45px);
             }
 
             to {
@@ -552,10 +603,78 @@
             }
         }
 
-        @keyframes zoomIn {
+
+        /* ---------- EXPERIENCE ---------- */
+
+        .experience-item.play-animation {
+            animation: experienceSlide 0.8s ease both;
+        }
+
+        .experience-item:nth-child(2).play-animation {
+            animation-delay: 0s;
+        }
+
+        .experience-item:nth-child(3).play-animation {
+            animation-delay: 0.12s;
+        }
+
+        .experience-item:nth-child(4).play-animation {
+            animation-delay: 0.24s;
+        }
+
+        .experience-item:nth-child(5).play-animation {
+            animation-delay: 0.36s;
+        }
+
+        @keyframes experienceSlide {
             from {
                 opacity: 0;
-                transform: scale(0.94);
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+        /* ---------- EXPERIENCE PHOTOS ---------- */
+
+        /*
+           IMPORTANT:
+           The photo FRAME is NOT animated.
+
+           Only the image INSIDE the frame is animated.
+           Therefore the existing photo dimensions,
+           grid, aspect ratio, and rounded corners
+           stay exactly the same.
+        */
+
+        .experience-photo img.play-animation {
+            animation: photoZoom 0.9s ease both;
+        }
+
+        .experience-photo:nth-child(1) img.play-animation {
+            animation-delay: 0s;
+        }
+
+        .experience-photo:nth-child(2) img.play-animation {
+            animation-delay: 0.08s;
+        }
+
+        .experience-photo:nth-child(3) img.play-animation {
+            animation-delay: 0.16s;
+        }
+
+        .experience-photo:nth-child(4) img.play-animation {
+            animation-delay: 0.24s;
+        }
+
+        @keyframes photoZoom {
+            from {
+                opacity: 0.85;
+                transform: scale(1.06);
             }
 
             to {
@@ -563,6 +682,57 @@
                 transform: scale(1);
             }
         }
+
+
+        /* ---------- SKILLS ---------- */
+
+        .skill-card.play-animation {
+            animation: skillRise 0.7s ease both;
+        }
+
+        .skill-card:nth-child(1).play-animation {
+            animation-delay: 0s;
+        }
+
+        .skill-card:nth-child(2).play-animation {
+            animation-delay: 0.15s;
+        }
+
+        .skill-card:nth-child(3).play-animation {
+            animation-delay: 0.30s;
+        }
+
+        @keyframes skillRise {
+            from {
+                opacity: 0;
+                transform: translateY(45px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* ---------- CONTACT ---------- */
+
+        .contact-content.play-animation {
+            animation: contactRise 0.9s ease both;
+        }
+
+        @keyframes contactRise {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
 
         /* =========================
            RESPONSIVE
@@ -627,6 +797,7 @@
             }
         }
 
+
         @media (max-width: 600px) {
 
             section {
@@ -672,6 +843,7 @@
             }
         }
 
+
         /* =========================
            REDUCED MOTION
         ========================= */
@@ -690,16 +862,20 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
     </style>
 </head>
 
+
 <body>
+
 
     <!-- =========================
          NAVIGATION
     ========================= -->
 
     <nav>
+
         <div class="nav-container">
 
             <a href="#home" class="logo">
@@ -707,15 +883,23 @@
             </a>
 
             <div class="nav-links">
+
                 <a href="#home">Home</a>
+
                 <a href="#my-story">My Story</a>
+
                 <a href="#what-i-do">What I Can Do</a>
+
                 <a href="#experience">Experience</a>
+
                 <a href="#skills">Skills</a>
+
                 <a href="#contact">Contact</a>
+
             </div>
 
         </div>
+
     </nav>
 
 
@@ -838,6 +1022,7 @@
 
             <div class="services-grid">
 
+
                 <div class="service-card">
 
                     <h3>
@@ -930,7 +1115,6 @@
                     Feb 2025 – Feb 2026
                 </div>
 
-
                 <div class="experience-content">
 
                     <h3>
@@ -944,7 +1128,6 @@
                     <p class="experience-description">
                         Kept a department's finances accurate and its operations running — reconciling transactions, tracking budgets against actuals, and flagging variances early — while also handling scheduling, correspondence, and customer support.
                     </p>
-
 
                     <div class="tags">
 
@@ -1000,7 +1183,6 @@
                     Sept 2026 – Present
                 </div>
 
-
                 <div class="experience-content">
 
                     <h3>
@@ -1014,7 +1196,6 @@
                     <p class="experience-description">
                         Plans and leads weekly educational classes for youth, adapting lessons to different backgrounds and needs. This role involves weekly lesson planning, classroom facilitation, communication, group coordination, and adapting plans when circumstances change.
                     </p>
-
 
                     <div class="tags">
 
@@ -1070,7 +1251,6 @@
                     June 2024 – Dec 2024
                 </div>
 
-
                 <div class="experience-content">
 
                     <h3>
@@ -1084,7 +1264,6 @@
                     <p class="experience-description">
                         Maintained facilities through consistent, detail-focused work while following standards for cleanliness, organization, and reliability. The role required good time management, attention to detail, and the ability to complete routine responsibilities consistently.
                     </p>
-
 
                     <div class="tags">
 
@@ -1122,7 +1301,6 @@
                     May 2022 – May 2024
                 </div>
 
-
                 <div class="experience-content">
 
                     <h3>
@@ -1136,7 +1314,6 @@
                     <p class="experience-description">
                         Managed a demanding daily schedule of appointments, goals, and responsibilities while working with people from diverse backgrounds. Developed strong communication, teamwork, scheduling, and adaptability skills while balancing multiple priorities and adjusting quickly when plans changed.
                     </p>
-
 
                     <div class="tags">
 
@@ -1211,7 +1388,6 @@
 
             <div class="skills-grid">
 
-                <!-- Financial & Data -->
 
                 <div class="skill-card">
 
@@ -1231,7 +1407,6 @@
 
                     </div>
 
-
                     <div class="skill-item">
 
                         <strong>
@@ -1244,7 +1419,6 @@
 
                     </div>
 
-
                     <div class="skill-item">
 
                         <strong>
@@ -1256,7 +1430,6 @@
                         </p>
 
                     </div>
-
 
                     <div class="skill-item">
 
@@ -1272,8 +1445,6 @@
 
                 </div>
 
-
-                <!-- Communication & Coordination -->
 
                 <div class="skill-card">
 
@@ -1293,7 +1464,6 @@
 
                     </div>
 
-
                     <div class="skill-item">
 
                         <strong>
@@ -1306,7 +1476,6 @@
 
                     </div>
 
-
                     <div class="skill-item">
 
                         <strong>
@@ -1318,7 +1487,6 @@
                         </p>
 
                     </div>
-
 
                     <div class="skill-item">
 
@@ -1334,8 +1502,6 @@
 
                 </div>
 
-
-                <!-- Operations -->
 
                 <div class="skill-card">
 
@@ -1355,7 +1521,6 @@
 
                     </div>
 
-
                     <div class="skill-item">
 
                         <strong>
@@ -1368,7 +1533,6 @@
 
                     </div>
 
-
                     <div class="skill-item">
 
                         <strong>
@@ -1380,7 +1544,6 @@
                         </p>
 
                     </div>
-
 
                     <div class="skill-item">
 
@@ -1481,106 +1644,221 @@
 
 
     <!-- =========================
-         NAVIGATION ANIMATION SCRIPT
+         NAVIGATION ANIMATION SYSTEM
     ========================= -->
 
     <script>
-
-        /*
-         * Each section has its own animation.
-         *
-         * Every time a navigation link is clicked:
-         * 1. The old animation class is removed.
-         * 2. The browser is forced to recognize that removal.
-         * 3. The animation class is added again.
-         *
-         * This makes the animation restart every time
-         * you return to the section.
-         */
 
         const navigationLinks = document.querySelectorAll(
             'nav a[href^="#"]'
         );
 
 
-        navigationLinks.forEach(function (link) {
+        function playAnimations(sectionId) {
 
-            link.addEventListener("click", function () {
+            const section = document.querySelector(sectionId);
 
-                const targetId = this.getAttribute("href");
+            if (!section) {
+                return;
+            }
 
-                const targetSection = document.querySelector(targetId);
 
-                if (!targetSection) {
+            /* =========================
+               MY STORY
+            ========================= */
+
+            if (sectionId === "#my-story") {
+
+                const elements = [
+                    section.querySelector(".story-text"),
+                    section.querySelector(".story-image")
+                ];
+
+                restartAnimations(elements);
+            }
+
+
+            /* =========================
+               WHAT I CAN DO
+            ========================= */
+
+            else if (sectionId === "#what-i-do") {
+
+                const elements = section.querySelectorAll(
+                    ".service-card"
+                );
+
+                restartAnimations(elements);
+            }
+
+
+            /* =========================
+               EXPERIENCE
+            ========================= */
+
+            else if (sectionId === "#experience") {
+
+                const entries = section.querySelectorAll(
+                    ".experience-item"
+                );
+
+                restartAnimations(entries);
+
+
+                /*
+                 * Animate the images INSIDE their
+                 * existing frames.
+                 */
+
+                const photos = section.querySelectorAll(
+                    ".experience-photo img"
+                );
+
+                restartAnimations(photos);
+            }
+
+
+            /* =========================
+               SKILLS
+            ========================= */
+
+            else if (sectionId === "#skills") {
+
+                const cards = section.querySelectorAll(
+                    ".skill-card"
+                );
+
+                restartAnimations(cards);
+            }
+
+
+            /* =========================
+               CONTACT
+            ========================= */
+
+            else if (sectionId === "#contact") {
+
+                const contact = section.querySelector(
+                    ".contact-content"
+                );
+
+                restartAnimations([contact]);
+            }
+
+
+            /* =========================
+               HOME
+            ========================= */
+
+            else if (sectionId === "#home") {
+
+                const heroText = section.querySelector(
+                    ".hero-text"
+                );
+
+                const heroPhoto = section.querySelector(
+                    ".hero-photo"
+                );
+
+
+                /*
+                 * Remove the original permanent
+                 * animation temporarily.
+                 */
+
+                heroText.style.animation = "none";
+                heroPhoto.style.animation = "none";
+                heroPhoto.style.opacity = "1";
+
+
+                void section.offsetWidth;
+
+
+                heroText.style.animation =
+                    "fadeInUp 1s ease forwards";
+
+                heroPhoto.style.animation =
+                    "fadeInRight 1s ease 0.2s forwards";
+
+                heroPhoto.style.opacity = "0";
+            }
+
+        }
+
+
+        function restartAnimations(elements) {
+
+            elements.forEach(function (element) {
+
+                if (!element) {
                     return;
                 }
 
 
                 /*
-                 * Remove any previous animation.
+                 * Remove the animation class.
                  */
 
-                targetSection.classList.remove(
-                    "animate-left",
-                    "animate-right",
-                    "animate-up",
-                    "animate-zoom"
+                element.classList.remove(
+                    "play-animation"
                 );
-
-
-                /*
-                 * Force a browser reflow.
-                 *
-                 * This is what allows the exact same
-                 * animation to restart again.
-                 */
-
-                void targetSection.offsetWidth;
-
-
-                /*
-                 * Choose the animation for each section.
-                 */
-
-                if (targetId === "#my-story") {
-
-                    targetSection.classList.add("animate-left");
-
-                }
-
-                else if (targetId === "#what-i-do") {
-
-                    targetSection.classList.add("animate-up");
-
-                }
-
-                else if (targetId === "#experience") {
-
-                    targetSection.classList.add("animate-right");
-
-                }
-
-                else if (targetId === "#skills") {
-
-                    targetSection.classList.add("animate-zoom");
-
-                }
-
-                else if (targetId === "#contact") {
-
-                    targetSection.classList.add("animate-up");
-
-                }
-
-                else if (targetId === "#home") {
-
-                    targetSection.classList.add("animate-zoom");
-
-                }
 
             });
 
+
+            /*
+             * Force browser reflow.
+             *
+             * This makes the next animation start
+             * from the beginning even if the same
+             * navigation link is clicked repeatedly.
+             */
+
+            void document.body.offsetWidth;
+
+
+            elements.forEach(function (element) {
+
+                if (!element) {
+                    return;
+                }
+
+
+                element.classList.add(
+                    "play-animation"
+                );
+
+            });
+
+        }
+
+
+        navigationLinks.forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    const targetId =
+                        this.getAttribute("href");
+
+
+                    /*
+                     * Wait a tiny moment so the browser
+                     * can move toward the section first.
+                     */
+
+                    setTimeout(function () {
+
+                        playAnimations(targetId);
+
+                    }, 80);
+
+                }
+            );
+
         });
+
 
     </script>
 
