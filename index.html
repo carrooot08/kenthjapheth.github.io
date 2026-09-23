@@ -6,38 +6,43 @@
 
     <title>Kenth Manuel | Financial & Administrative Support</title>
 
-    <script>
-        document.documentElement.classList.add("js");
-    </script>
-
     <style>
-
-        /* =========================
-           GENERAL
-        ========================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             color: #3d2b20;
             background: #f6f1e8;
             line-height: 1.7;
         }
 
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+        }
+
         h1,
         h2,
         h3 {
-            font-family: Georgia, serif;
+            font-family: Georgia, "Times New Roman", serif;
         }
 
         h2 {
-            font-size: clamp(40px, 6vw, 64px);
+            font-size: clamp(40px, 5vw, 64px);
             line-height: 1.1;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         section {
@@ -48,7 +53,6 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-
 
         /* =========================
            NAVIGATION
@@ -63,40 +67,39 @@
             padding: 20px 7%;
         }
 
-        .nav-inner {
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
         }
 
-        .nav-name {
-            font-family: Georgia, serif;
+        .logo {
+            font-family: Georgia, "Times New Roman", serif;
             font-size: 22px;
             font-weight: bold;
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
             flex-wrap: wrap;
+            justify-content: flex-end;
             gap: 25px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #3d2b20;
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 600;
             transition: opacity 0.3s ease;
         }
 
         .nav-links a:hover {
-            opacity: 0.55;
+            opacity: 0.6;
         }
-
 
         /* =========================
            HERO
@@ -105,7 +108,6 @@
         #home {
             background: #efe5d5;
             min-height: 90vh;
-
             display: flex;
             align-items: center;
         }
@@ -114,52 +116,50 @@
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
-
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 70px;
             align-items: center;
+            gap: 70px;
         }
 
         .hero-text {
             animation: fadeInUp 1s ease forwards;
         }
 
-        .hero-text small {
-            font-size: 18px;
+        .hero-small {
+            font-size: 20px;
+            margin-bottom: 8px;
         }
 
         .hero h1 {
-            font-size: clamp(52px, 8vw, 90px);
-            line-height: 1;
-            margin: 15px 0;
+            font-size: clamp(55px, 7vw, 90px);
+            line-height: 0.95;
+            margin-bottom: 20px;
         }
 
         .hero-subtitle {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            margin-bottom: 25px;
         }
 
         .hero-description {
             max-width: 650px;
-            font-size: 18px;
+            margin-bottom: 35px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 15px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            gap: 15px;
         }
 
         .btn {
             display: inline-block;
-            padding: 13px 24px;
+            padding: 14px 24px;
             border: 1px solid #3d2b20;
-            border-radius: 30px;
+            border-radius: 50px;
             text-decoration: none;
-            color: #3d2b20;
             transition: all 0.3s ease;
         }
 
@@ -173,13 +173,10 @@
             max-width: 430px;
             width: 100%;
             height: 520px;
-
             margin-left: auto;
-
             border-radius: 190px 190px 30px 30px;
             background: #d9c9b6;
             overflow: hidden;
-
             animation: fadeInRight 1s ease 0.2s forwards;
             opacity: 0;
         }
@@ -190,24 +187,24 @@
             object-fit: cover;
         }
 
-
         /* =========================
            MY STORY
         ========================= */
 
-        .story-grid {
+        .story {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
+            grid-template-columns: 1fr 0.8fr;
             align-items: center;
+            gap: 70px;
         }
 
-        .story-text {
-            max-width: 650px;
+        .story-text p {
+            margin-bottom: 20px;
         }
 
         .story-image {
             max-width: 420px;
+            width: 100%;
             margin-left: auto;
             border-radius: 30px;
             overflow: hidden;
@@ -216,10 +213,8 @@
         .story-image img {
             width: 100%;
             height: auto;
-            display: block;
             object-fit: contain;
         }
-
 
         /* =========================
            WHAT I CAN DO
@@ -227,6 +222,11 @@
 
         #what-i-do {
             background: #efe5d5;
+        }
+
+        .section-intro {
+            max-width: 700px;
+            margin-bottom: 50px;
         }
 
         .services-grid {
@@ -239,22 +239,18 @@
             background: #f6f1e8;
             padding: 35px;
             border-radius: 22px;
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(61, 43, 32, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(61, 43, 32, 0.08);
         }
 
         .service-card h3 {
             font-size: 25px;
-            margin-top: 0;
+            margin-bottom: 15px;
         }
-
 
         /* =========================
            EXPERIENCE
@@ -264,7 +260,6 @@
             display: grid;
             grid-template-columns: 250px 1fr;
             gap: 50px;
-
             padding: 55px 0;
             border-top: 1px solid #ddd0c0;
         }
@@ -274,32 +269,35 @@
         }
 
         .experience-date {
-            font-weight: bold;
-        }
-
-        .experience-company {
             font-size: 15px;
-            opacity: 0.7;
-            margin-top: 5px;
+            opacity: 0.75;
         }
 
         .experience-content h3 {
             font-size: 30px;
-            margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .experience-description {
+            margin-bottom: 25px;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 25px;
+            gap: 10px;
+            margin-bottom: 30px;
         }
 
         .tag {
-            border: 1px solid #cdbca8;
-            border-radius: 30px;
-            padding: 6px 13px;
+            padding: 7px 14px;
+            border: 1px solid #cbbba8;
+            border-radius: 50px;
             font-size: 13px;
         }
 
@@ -307,28 +305,9 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            margin-top: 30px;
         }
 
-        .experience-photo {
-            width: 100%;
-            overflow: hidden;
-            border-radius: 22px;
-            background: #e8dccb;
-        }
-
-        .experience-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-
-        /* =========================
-           FINANCIAL GALLERY
-        ========================= */
-
+        /* Financial gallery */
         .financial-gallery .experience-photo {
             aspect-ratio: 4 / 3;
             height: auto;
@@ -343,11 +322,7 @@
             object-fit: cover;
         }
 
-
-        /* =========================
-           SEMINARY GALLERY
-        ========================= */
-
+        /* Seminary gallery */
         .seminary-gallery .experience-photo {
             aspect-ratio: 4 / 3;
             height: auto;
@@ -362,33 +337,7 @@
             object-fit: cover;
         }
 
-
-        /* =========================
-           MAINTENANCE PHOTO
-        ========================= */
-
-        .maintenance-photo {
-            max-width: 900px;
-            height: 420px;
-
-            border-radius: 22px;
-            overflow: hidden;
-
-            margin-top: 30px;
-        }
-
-        .maintenance-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-
-        /* =========================
-           MISSIONARY GALLERY
-        ========================= */
-
+        /* Missionary gallery */
         .missionary-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -409,6 +358,19 @@
             object-fit: cover;
         }
 
+        /* Maintenance */
+        .maintenance-photo {
+            max-width: 900px;
+            height: 420px;
+            border-radius: 22px;
+            overflow: hidden;
+        }
+
+        .maintenance-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         /* =========================
            SKILLS
@@ -416,11 +378,6 @@
 
         #skills {
             background: #efe5d5;
-        }
-
-        .skills-intro {
-            max-width: 700px;
-            margin-bottom: 45px;
         }
 
         .skills-grid {
@@ -433,24 +390,21 @@
             background: #f6f1e8;
             padding: 35px;
             border-radius: 22px;
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .skill-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(61, 43, 32, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(61, 43, 32, 0.08);
         }
 
         .skill-card h3 {
             font-size: 25px;
-            margin-top: 0;
+            margin-bottom: 25px;
         }
 
         .skill-item {
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .skill-item:last-child {
@@ -461,7 +415,6 @@
             display: block;
             margin-bottom: 5px;
         }
-
 
         /* =========================
            CONTACT
@@ -487,131 +440,31 @@
             gap: 30px;
         }
 
-        .contact-details strong {
+        .contact-detail strong {
             display: block;
             margin-bottom: 5px;
         }
 
-        .contact-details a {
-            color: #f6f1e8;
+        .contact-detail a {
+            text-decoration: none;
         }
+
+        .contact-detail a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             background: #3d2b20;
             color: #f6f1e8;
-            text-align: center;
             padding: 25px 7%;
-            font-size: 13px;
+            text-align: center;
+            border-top: 1px solid rgba(246, 241, 232, 0.15);
+            font-size: 14px;
         }
-
-
-        /* =========================
-           ANIMATION SYSTEM
-        ========================= */
-
-        /*
-           These animations only activate when JavaScript
-           is available. This prevents content from becoming
-           invisible if JavaScript is disabled.
-        */
-
-        .js .reveal {
-            opacity: 0;
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-        }
-
-        .js .reveal-left {
-            transform: translateX(-50px);
-        }
-
-        .js .reveal-right {
-            transform: translateX(50px);
-        }
-
-        .js .reveal-up {
-            transform: translateY(45px);
-        }
-
-        .js .reveal-zoom {
-            transform: scale(0.94);
-        }
-
-        .js .reveal.visible {
-            opacity: 1;
-            transform: none;
-        }
-
-
-        /* =========================
-           STAGGERED ANIMATIONS
-        ========================= */
-
-        .js .services-grid .reveal:nth-child(1),
-        .js .skills-grid .reveal:nth-child(1) {
-            transition-delay: 0.05s;
-        }
-
-        .js .services-grid .reveal:nth-child(2),
-        .js .skills-grid .reveal:nth-child(2) {
-            transition-delay: 0.15s;
-        }
-
-        .js .services-grid .reveal:nth-child(3),
-        .js .skills-grid .reveal:nth-child(3) {
-            transition-delay: 0.25s;
-        }
-
-        .js .services-grid .reveal:nth-child(4) {
-            transition-delay: 0.35s;
-        }
-
-        .js .services-grid .reveal:nth-child(5) {
-            transition-delay: 0.45s;
-        }
-
-
-        /* =========================
-           EXPERIENCE STAGGER
-        ========================= */
-
-        .js .experience-item:nth-child(1) {
-            transition-delay: 0.05s;
-        }
-
-        .js .experience-item:nth-child(2) {
-            transition-delay: 0.15s;
-        }
-
-        .js .experience-item:nth-child(3) {
-            transition-delay: 0.25s;
-        }
-
-        .js .experience-item:nth-child(4) {
-            transition-delay: 0.35s;
-        }
-
-
-        /* =========================
-           IMAGE ZOOM
-        ========================= */
-
-        .experience-photo.reveal-zoom img,
-        .maintenance-photo.reveal-zoom img {
-            transition: transform 0.9s ease;
-        }
-
-        .experience-photo.reveal-zoom.visible img,
-        .maintenance-photo.reveal-zoom.visible img {
-            transform: scale(1);
-        }
-
-        .experience-photo.reveal-zoom img,
-        .maintenance-photo.reveal-zoom img {
-            transform: scale(1.08);
-        }
-
 
         /* =========================
            HERO ANIMATIONS
@@ -641,9 +494,78 @@
             }
         }
 
+        /* =========================
+           NAVIGATION ANIMATIONS
+           These replay every time
+           a navigation link is clicked.
+        ========================= */
+
+        .animate-left {
+            animation: slideFromLeft 0.8s ease both;
+        }
+
+        .animate-right {
+            animation: slideFromRight 0.8s ease both;
+        }
+
+        .animate-up {
+            animation: slideFromBottom 0.8s ease both;
+        }
+
+        .animate-zoom {
+            animation: zoomIn 0.8s ease both;
+        }
+
+        @keyframes slideFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.94);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
         /* =========================
-           MOBILE
+           RESPONSIVE
         ========================= */
 
         @media (max-width: 900px) {
@@ -652,13 +574,14 @@
                 padding: 18px 6%;
             }
 
-            .nav-inner {
+            .nav-container {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
             .nav-links {
-                gap: 15px;
+                justify-content: flex-start;
+                gap: 15px 20px;
             }
 
             .hero {
@@ -670,7 +593,7 @@
                 margin: 0 auto;
             }
 
-            .story-grid {
+            .story {
                 grid-template-columns: 1fr;
             }
 
@@ -682,13 +605,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
             .experience-item {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
 
             .experience-gallery {
@@ -703,7 +626,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
 
         @media (max-width: 600px) {
 
@@ -750,7 +672,6 @@
             }
         }
 
-
         /* =========================
            REDUCED MOTION
         ========================= */
@@ -769,24 +690,21 @@
                 transition-duration: 0.01ms !important;
             }
         }
-
     </style>
 </head>
 
-
 <body>
-
 
     <!-- =========================
          NAVIGATION
     ========================= -->
 
     <nav>
-        <div class="nav-inner">
+        <div class="nav-container">
 
-            <div class="nav-name">
+            <a href="#home" class="logo">
                 Kenth Manuel
-            </div>
+            </a>
 
             <div class="nav-links">
                 <a href="#home">Home</a>
@@ -811,9 +729,13 @@
 
             <div class="hero-text">
 
-                <small>Hi,</small>
+                <div class="hero-small">
+                    Hi,
+                </div>
 
-                <h1>I'm Kenth Manuel.</h1>
+                <h1>
+                    I'm Kenth Manuel.
+                </h1>
 
                 <div class="hero-subtitle">
                     Financial & Administrative Support
@@ -824,6 +746,7 @@
                 </p>
 
                 <div class="hero-buttons">
+
                     <a href="#experience" class="btn">
                         View My Experience
                     </a>
@@ -831,13 +754,16 @@
                     <a href="#contact" class="btn">
                         Let's Connect
                     </a>
+
                 </div>
 
             </div>
 
 
             <div class="hero-photo">
+
                 <img src="Him.JPG" alt="Kenth Manuel">
+
             </div>
 
         </div>
@@ -853,13 +779,13 @@
 
         <div class="container">
 
-            <h2 class="reveal reveal-up">
-                My Story
-            </h2>
+            <div class="story">
 
-            <div class="story-grid">
+                <div class="story-text">
 
-                <div class="story-text reveal reveal-left">
+                    <h2>
+                        My Story
+                    </h2>
 
                     <p>
                         My experience has taught me that good work often comes down to the details.
@@ -880,7 +806,7 @@
                 </div>
 
 
-                <div class="story-image reveal reveal-right">
+                <div class="story-image">
 
                     <img src="my story.jpeg" alt="Kenth Manuel">
 
@@ -901,15 +827,22 @@
 
         <div class="container">
 
-            <h2 class="reveal reveal-up">
+            <h2>
                 What I Can Do
             </h2>
 
+            <p class="section-intro">
+                I bring practical experience in financial support, data handling, administration, communication, and detail-focused work.
+            </p>
+
+
             <div class="services-grid">
 
-                <div class="service-card reveal reveal-up">
+                <div class="service-card">
 
-                    <h3>Financial Support</h3>
+                    <h3>
+                        Financial Support
+                    </h3>
 
                     <p>
                         I can help keep financial information organized and accurate through transaction tracking, budget monitoring, reconciliation, and documentation.
@@ -918,9 +851,11 @@
                 </div>
 
 
-                <div class="service-card reveal reveal-up">
+                <div class="service-card">
 
-                    <h3>Data & Reporting</h3>
+                    <h3>
+                        Data & Reporting
+                    </h3>
 
                     <p>
                         Comfortable working with Microsoft Excel and Power BI to organize information, maintain records, and support reporting.
@@ -929,9 +864,11 @@
                 </div>
 
 
-                <div class="service-card reveal reveal-up">
+                <div class="service-card">
 
-                    <h3>Administrative Support</h3>
+                    <h3>
+                        Administrative Support
+                    </h3>
 
                     <p>
                         From scheduling and email management to documentation and coordination, I can help keep day-to-day operations running smoothly.
@@ -940,9 +877,11 @@
                 </div>
 
 
-                <div class="service-card reveal reveal-up">
+                <div class="service-card">
 
-                    <h3>Customer Support</h3>
+                    <h3>
+                        Customer Support
+                    </h3>
 
                     <p>
                         Clear communication and a professional approach help me handle customer concerns and work effectively with different people.
@@ -951,9 +890,11 @@
                 </div>
 
 
-                <div class="service-card reveal reveal-up">
+                <div class="service-card">
 
-                    <h3>Detail-Focused Work</h3>
+                    <h3>
+                        Detail-Focused Work
+                    </h3>
 
                     <p>
                         I pay attention to the small things, especially when working with records, confidential information, and tasks where accuracy matters.
@@ -976,25 +917,17 @@
 
         <div class="container">
 
-            <h2 class="reveal reveal-up">
+            <h2>
                 My Experience
             </h2>
 
 
             <!-- FINANCIAL -->
 
-            <div class="experience-item reveal reveal-left">
+            <div class="experience-item">
 
-                <div>
-
-                    <div class="experience-date">
-                        Feb 2025 – Feb 2026
-                    </div>
-
-                    <div class="experience-company">
-                        Sto. Nino De Cebu Finance Corp.
-                    </div>
-
+                <div class="experience-date">
+                    Feb 2025 – Feb 2026
                 </div>
 
 
@@ -1004,35 +937,51 @@
                         Financial & Administrative Support
                     </h3>
 
-                    <p>
+                    <div class="experience-company">
+                        Sto. Nino De Cebu Finance Corp.
+                    </div>
+
+                    <p class="experience-description">
                         Kept a department's finances accurate and its operations running — reconciling transactions, tracking budgets against actuals, and flagging variances early — while also handling scheduling, correspondence, and customer support.
                     </p>
 
+
                     <div class="tags">
 
-                        <span class="tag">Budget Tracking</span>
-                        <span class="tag">Excel & Power BI</span>
-                        <span class="tag">Confidential Data</span>
-                        <span class="tag">Customer Support</span>
+                        <span class="tag">
+                            Budget Tracking
+                        </span>
+
+                        <span class="tag">
+                            Excel & Power BI
+                        </span>
+
+                        <span class="tag">
+                            Confidential Data
+                        </span>
+
+                        <span class="tag">
+                            Customer Support
+                        </span>
 
                     </div>
 
 
                     <div class="experience-gallery financial-gallery">
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="work 1st.jpeg" alt="Financial work">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="work 2nd.jpeg" alt="Financial work">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="work 3rd.jpeg" alt="Financial work">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="work 4th.jpeg" alt="Financial work">
                         </div>
 
@@ -1045,18 +994,10 @@
 
             <!-- SEMINARY -->
 
-            <div class="experience-item reveal reveal-right">
+            <div class="experience-item">
 
-                <div>
-
-                    <div class="experience-date">
-                        Sept 2026 – Present
-                    </div>
-
-                    <div class="experience-company">
-                        The Church of Jesus Christ of Latter-day Saints
-                    </div>
-
+                <div class="experience-date">
+                    Sept 2026 – Present
                 </div>
 
 
@@ -1066,36 +1007,52 @@
                         Seminary Teacher of Youth
                     </h3>
 
-                    <p>
+                    <div class="experience-company">
+                        The Church of Jesus Christ of Latter-day Saints
+                    </div>
+
+                    <p class="experience-description">
                         Plans and leads weekly educational classes for youth, adapting lessons to different backgrounds and needs. This role involves weekly lesson planning, classroom facilitation, communication, group coordination, and adapting plans when circumstances change.
                     </p>
 
+
                     <div class="tags">
 
-                        <span class="tag">Communication</span>
-                        <span class="tag">Planning</span>
-                        <span class="tag">Facilitation</span>
-                        <span class="tag">Adaptability</span>
+                        <span class="tag">
+                            Communication
+                        </span>
+
+                        <span class="tag">
+                            Planning
+                        </span>
+
+                        <span class="tag">
+                            Facilitation
+                        </span>
+
+                        <span class="tag">
+                            Adaptability
+                        </span>
 
                     </div>
 
 
                     <div class="experience-gallery seminary-gallery">
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="sem 1.jpeg" alt="Seminary teaching">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="sem 2.jpeg" alt="Seminary teaching">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
-                            <img src="FSY.jpg" alt="Seminary teaching">
+                        <div class="experience-photo">
+                            <img src="FSY.jpg" alt="Seminary activity">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
-                            <img src="fsy 1.jpg" alt="Seminary teaching">
+                        <div class="experience-photo">
+                            <img src="fsy 1.jpg" alt="Seminary activity">
                         </div>
 
                     </div>
@@ -1105,20 +1062,12 @@
             </div>
 
 
-            <!-- MAINTENANCE -->
+            <!-- BUILDING MAINTENANCE -->
 
-            <div class="experience-item reveal reveal-left">
+            <div class="experience-item">
 
-                <div>
-
-                    <div class="experience-date">
-                        June 2024 – Dec 2024
-                    </div>
-
-                    <div class="experience-company">
-                        Facility Operations
-                    </div>
-
+                <div class="experience-date">
+                    June 2024 – Dec 2024
                 </div>
 
 
@@ -1128,22 +1077,35 @@
                         Building Maintenance & Cleaning
                     </h3>
 
-                    <p>
+                    <div class="experience-company">
+                        Facility Operations
+                    </div>
+
+                    <p class="experience-description">
                         Maintained facilities through consistent, detail-focused work while following standards for cleanliness, organization, and reliability. The role required good time management, attention to detail, and the ability to complete routine responsibilities consistently.
                     </p>
 
+
                     <div class="tags">
 
-                        <span class="tag">Reliability</span>
-                        <span class="tag">Attention to Detail</span>
-                        <span class="tag">Time Management</span>
+                        <span class="tag">
+                            Reliability
+                        </span>
+
+                        <span class="tag">
+                            Attention to Detail
+                        </span>
+
+                        <span class="tag">
+                            Time Management
+                        </span>
 
                     </div>
 
 
-                    <div class="maintenance-photo reveal reveal-zoom">
+                    <div class="maintenance-photo">
 
-                        <img src="faci main.jpeg" alt="Facility maintenance">
+                        <img src="faci main.jpeg" alt="Building maintenance">
 
                     </div>
 
@@ -1154,18 +1116,10 @@
 
             <!-- MISSIONARY -->
 
-            <div class="experience-item reveal reveal-right">
+            <div class="experience-item">
 
-                <div>
-
-                    <div class="experience-date">
-                        May 2022 – May 2024
-                    </div>
-
-                    <div class="experience-company">
-                        The Church of Jesus Christ of Latter-day Saints
-                    </div>
-
+                <div class="experience-date">
+                    May 2022 – May 2024
                 </div>
 
 
@@ -1175,36 +1129,55 @@
                         Full-Time Missionary
                     </h3>
 
-                    <p>
+                    <div class="experience-company">
+                        The Church of Jesus Christ of Latter-day Saints
+                    </div>
+
+                    <p class="experience-description">
                         Managed a demanding daily schedule of appointments, goals, and responsibilities while working with people from diverse backgrounds. Developed strong communication, teamwork, scheduling, and adaptability skills while balancing multiple priorities and adjusting quickly when plans changed.
                     </p>
 
+
                     <div class="tags">
 
-                        <span class="tag">Scheduling</span>
-                        <span class="tag">Adaptability</span>
-                        <span class="tag">Teamwork</span>
-                        <span class="tag">Communication</span>
-                        <span class="tag">Planning</span>
+                        <span class="tag">
+                            Scheduling
+                        </span>
+
+                        <span class="tag">
+                            Adaptability
+                        </span>
+
+                        <span class="tag">
+                            Teamwork
+                        </span>
+
+                        <span class="tag">
+                            Communication
+                        </span>
+
+                        <span class="tag">
+                            Planning
+                        </span>
 
                     </div>
 
 
                     <div class="experience-gallery missionary-gallery">
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="First pic.jpeg" alt="Missionary experience">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="2nd.jpeg" alt="Missionary experience">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="3rd.jpeg" alt="Missionary experience">
                         </div>
 
-                        <div class="experience-photo reveal reveal-zoom">
+                        <div class="experience-photo">
                             <img src="4th.jpeg" alt="Missionary experience">
                         </div>
 
@@ -1227,177 +1200,197 @@
 
         <div class="container">
 
-            <h2 class="reveal reveal-up">
+            <h2>
                 Skills & Tools
             </h2>
 
-            <p class="skills-intro reveal reveal-up">
+            <p class="section-intro">
                 Tools and skills I use to keep information organized, communicate clearly, and support day-to-day operations.
             </p>
 
 
             <div class="skills-grid">
 
+                <!-- Financial & Data -->
 
-                <!-- FINANCIAL & DATA -->
-
-                <div class="skill-card reveal reveal-up">
+                <div class="skill-card">
 
                     <h3>
                         Financial & Data
                     </h3>
 
-
                     <div class="skill-item">
 
-                        <strong>Microsoft Excel</strong>
+                        <strong>
+                            Microsoft Excel
+                        </strong>
 
-                        <span>
+                        <p>
                             Used for organizing data, tracking transactions, monitoring budgets, and maintaining accurate records.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Power BI</strong>
+                        <strong>
+                            Power BI
+                        </strong>
 
-                        <span>
+                        <p>
                             Used to organize and present information in a clear and useful way for reporting and analysis.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Data Entry & Documentation</strong>
+                        <strong>
+                            Data Entry & Documentation
+                        </strong>
 
-                        <span>
+                        <p>
                             Comfortable maintaining records carefully and keeping information organized and up to date.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Confidentiality</strong>
+                        <strong>
+                            Confidentiality
+                        </strong>
 
-                        <span>
+                        <p>
                             Understands the importance of handling financial and customer information responsibly.
-                        </span>
+                        </p>
 
                     </div>
 
                 </div>
 
 
-                <!-- COMMUNICATION -->
+                <!-- Communication & Coordination -->
 
-                <div class="skill-card reveal reveal-up">
+                <div class="skill-card">
 
                     <h3>
                         Communication & Coordination
                     </h3>
 
-
                     <div class="skill-item">
 
-                        <strong>Email & Calendar Management</strong>
+                        <strong>
+                            Email & Calendar Management
+                        </strong>
 
-                        <span>
+                        <p>
                             Can manage schedules, correspondence, appointments, and day-to-day coordination.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Customer Service</strong>
+                        <strong>
+                            Customer Service
+                        </strong>
 
-                        <span>
+                        <p>
                             Communicates professionally and works to understand and respond to customer concerns.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Communication</strong>
+                        <strong>
+                            Communication
+                        </strong>
 
-                        <span>
+                        <p>
                             Comfortable communicating with different people and adapting communication to the situation.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Negotiation</strong>
+                        <strong>
+                            Negotiation
+                        </strong>
 
-                        <span>
+                        <p>
                             Uses clear communication and a practical approach when working through different needs and situations.
-                        </span>
+                        </p>
 
                     </div>
 
                 </div>
 
 
-                <!-- OPERATIONS -->
+                <!-- Operations -->
 
-                <div class="skill-card reveal reveal-up">
+                <div class="skill-card">
 
                     <h3>
                         Operations
                     </h3>
 
-
                     <div class="skill-item">
 
-                        <strong>Problem-Solving & Adaptability</strong>
+                        <strong>
+                            Problem-Solving & Adaptability
+                        </strong>
 
-                        <span>
+                        <p>
                             Able to adjust plans and respond to changing situations while keeping responsibilities on track.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Time Management & Organization</strong>
+                        <strong>
+                            Time Management & Organization
+                        </strong>
 
-                        <span>
+                        <p>
                             Experienced in managing schedules, priorities, and multiple responsibilities.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Teamwork & Collaboration</strong>
+                        <strong>
+                            Teamwork & Collaboration
+                        </strong>
 
-                        <span>
+                        <p>
                             Works effectively with others and contributes to shared goals and responsibilities.
-                        </span>
+                        </p>
 
                     </div>
 
 
                     <div class="skill-item">
 
-                        <strong>Multitasking & Prioritization</strong>
+                        <strong>
+                            Multitasking & Prioritization
+                        </strong>
 
-                        <span>
+                        <p>
                             Comfortable handling multiple tasks while identifying what needs attention first.
-                        </span>
+                        </p>
 
                     </div>
 
@@ -1416,52 +1409,60 @@
 
     <section id="contact">
 
-        <div class="container contact-content">
+        <div class="container">
 
-            <h2 class="reveal reveal-up">
-                Let's Work Together
-            </h2>
+            <div class="contact-content">
 
-            <p class="contact-text reveal reveal-up">
-                I'm open to opportunities where I can contribute my experience in financial administration, data handling, customer support, and day-to-day operations. If you're looking for someone who is organized, detail-focused, adaptable, and dependable, I'd be happy to connect.
-            </p>
+                <h2>
+                    Let's Work Together
+                </h2>
+
+                <p class="contact-text">
+                    I'm open to opportunities where I can contribute my experience in financial administration, data handling, customer support, and day-to-day operations. If you're looking for someone who is organized, detail-focused, adaptable, and dependable, I'd be happy to connect.
+                </p>
 
 
-            <div class="contact-details reveal reveal-up">
+                <div class="contact-details">
+
+                    <div class="contact-detail">
+
+                        <strong>
+                            Email
+                        </strong>
+
+                        <a href="mailto:kenth.manuel11@gmail.com">
+                            kenth.manuel11@gmail.com
+                        </a>
+
+                    </div>
 
 
-                <div>
+                    <div class="contact-detail">
 
-                    <strong>Email</strong>
+                        <strong>
+                            Phone
+                        </strong>
 
-                    <a href="mailto:kenth.manuel11@gmail.com">
-                        kenth.manuel11@gmail.com
-                    </a>
+                        <span>
+                            09481226494
+                        </span>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <strong>
+                            Location
+                        </strong>
+
+                        <span>
+                            Dagupan City, Philippines
+                        </span>
+
+                    </div>
 
                 </div>
-
-
-                <div>
-
-                    <strong>Phone</strong>
-
-                    <span>
-                        09481226494
-                    </span>
-
-                </div>
-
-
-                <div>
-
-                    <strong>Location</strong>
-
-                    <span>
-                        Dagupan City, Philippines
-                    </span>
-
-                </div>
-
 
             </div>
 
@@ -1475,76 +1476,113 @@
     ========================= -->
 
     <footer>
-
         © 2026 Kenth Manuel. All rights reserved.
-
     </footer>
 
 
     <!-- =========================
-         SCROLL ANIMATION SCRIPT
+         NAVIGATION ANIMATION SCRIPT
     ========================= -->
 
     <script>
 
-        const revealElements = document.querySelectorAll(".reveal");
+        /*
+         * Each section has its own animation.
+         *
+         * Every time a navigation link is clicked:
+         * 1. The old animation class is removed.
+         * 2. The browser is forced to recognize that removal.
+         * 3. The animation class is added again.
+         *
+         * This makes the animation restart every time
+         * you return to the section.
+         */
 
-        if ("IntersectionObserver" in window) {
+        const navigationLinks = document.querySelectorAll(
+            'nav a[href^="#"]'
+        );
 
-            const revealObserver = new IntersectionObserver(
-                (entries, observer) => {
 
-                    entries.forEach((entry) => {
+        navigationLinks.forEach(function (link) {
 
-                        if (entry.isIntersecting) {
+            link.addEventListener("click", function () {
 
-                            entry.target.classList.add("visible");
+                const targetId = this.getAttribute("href");
 
-                            /*
-                             * Stop observing this element after
-                             * the animation has played once.
-                             *
-                             * This means clicking the navigation
-                             * repeatedly will NOT reset or hide it.
-                             */
+                const targetSection = document.querySelector(targetId);
 
-                            observer.unobserve(entry.target);
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.15
+                if (!targetSection) {
+                    return;
                 }
-            );
 
 
-            revealElements.forEach((element) => {
+                /*
+                 * Remove any previous animation.
+                 */
 
-                revealObserver.observe(element);
+                targetSection.classList.remove(
+                    "animate-left",
+                    "animate-right",
+                    "animate-up",
+                    "animate-zoom"
+                );
+
+
+                /*
+                 * Force a browser reflow.
+                 *
+                 * This is what allows the exact same
+                 * animation to restart again.
+                 */
+
+                void targetSection.offsetWidth;
+
+
+                /*
+                 * Choose the animation for each section.
+                 */
+
+                if (targetId === "#my-story") {
+
+                    targetSection.classList.add("animate-left");
+
+                }
+
+                else if (targetId === "#what-i-do") {
+
+                    targetSection.classList.add("animate-up");
+
+                }
+
+                else if (targetId === "#experience") {
+
+                    targetSection.classList.add("animate-right");
+
+                }
+
+                else if (targetId === "#skills") {
+
+                    targetSection.classList.add("animate-zoom");
+
+                }
+
+                else if (targetId === "#contact") {
+
+                    targetSection.classList.add("animate-up");
+
+                }
+
+                else if (targetId === "#home") {
+
+                    targetSection.classList.add("animate-zoom");
+
+                }
 
             });
 
-        } else {
-
-            /*
-             * Fallback for older browsers.
-             * If IntersectionObserver isn't supported,
-             * simply show everything.
-             */
-
-            revealElements.forEach((element) => {
-
-                element.classList.add("visible");
-
-            });
-
-        }
+        });
 
     </script>
-
 
 </body>
 </html>
