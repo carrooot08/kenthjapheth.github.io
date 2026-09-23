@@ -306,7 +306,7 @@
 
 
         /* =========================
-           EXPERIENCE GALLERIES
+           EXPERIENCE PHOTO FRAMES
         ========================= */
 
         .experience-gallery {
@@ -316,36 +316,73 @@
             margin-top: 25px;
         }
 
-        /*
-           Financial & Administrative Support
-           and Seminary photos are 2048 x 1536 (4:3).
-           The frame follows the same 4:3 ratio so the
-           original photos fill the frame without cropping
-           or stretching.
-        */
-
-        .experience-gallery.standard-4-3 .experience-photo {
-            aspect-ratio: 4 / 3;
-            height: auto;
+        .experience-photo {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 22px;
+            background: #e8dccb;
         }
 
-        .experience-gallery.standard-4-3 .experience-photo img {
+        .experience-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+
+        /* Financial & Administrative Support
+           Original photos: 2048 × 1536 = 4:3 */
+
+        .financial-gallery .experience-photo {
+            aspect-ratio: 4 / 3;
+            height: auto;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #e8dccb;
+        }
+
+        .financial-gallery .experience-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /*
-           Full-Time Missionary photos
-           Keep all four photos in identical frames.
-        */
 
-        .experience-gallery.missionary-gallery .experience-photo {
-            width: 100%;
-            height: 260px;
+        /* Seminary Teacher of Youth
+           Original photos: 2048 × 1536 = 4:3 */
+
+        .seminary-gallery .experience-photo {
+            aspect-ratio: 4 / 3;
+            height: auto;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #e8dccb;
         }
 
-        .experience-gallery.missionary-gallery .experience-photo img {
+        .seminary-gallery .experience-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* Full-Time Missionary
+           All four photos use exactly the same frame */
+
+        .missionary-gallery {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .missionary-gallery .experience-photo {
+            width: 100%;
+            height: 260px;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #e8dccb;
+        }
+
+        .missionary-gallery .experience-photo img {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -557,12 +594,21 @@
                 grid-template-columns: 1fr;
             }
 
-            .experience-gallery.standard-4-3 .experience-photo {
+            .experience-photo {
+                height: 300px;
+            }
+
+            .financial-gallery .experience-photo,
+            .seminary-gallery .experience-photo {
                 aspect-ratio: 4 / 3;
                 height: auto;
             }
 
-            .experience-gallery.missionary-gallery .experience-photo {
+            .missionary-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .missionary-gallery .experience-photo {
                 height: 300px;
             }
 
@@ -865,49 +911,30 @@
 
                 <div class="tags">
 
-                    <span class="tag">
-                        Budget Tracking
-                    </span>
-
-                    <span class="tag">
-                        Excel & Power BI
-                    </span>
-
-                    <span class="tag">
-                        Confidential Data
-                    </span>
-
-                    <span class="tag">
-                        Customer Support
-                    </span>
+                    <span class="tag">Budget Tracking</span>
+                    <span class="tag">Excel & Power BI</span>
+                    <span class="tag">Confidential Data</span>
+                    <span class="tag">Customer Support</span>
 
                 </div>
 
 
-                <div class="experience-gallery standard-4-3">
+                <div class="experience-gallery financial-gallery">
 
                     <div class="experience-photo">
-                        <img
-                            src="work 1st.jpeg"
-                            alt="Financial and administrative work">
+                        <img src="work 1st.jpeg" alt="Financial and administrative work">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="work 2nd.jpeg"
-                            alt="Financial and administrative work">
+                        <img src="work 2nd.jpeg" alt="Financial and administrative work">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="work 3rd.jpeg"
-                            alt="Financial and administrative work">
+                        <img src="work 3rd.jpeg" alt="Financial and administrative work">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="work 4th.jpeg"
-                            alt="Financial and administrative work">
+                        <img src="work 4th.jpeg" alt="Financial and administrative work">
                     </div>
 
                 </div>
@@ -944,49 +971,30 @@
 
                 <div class="tags">
 
-                    <span class="tag">
-                        Communication
-                    </span>
-
-                    <span class="tag">
-                        Planning
-                    </span>
-
-                    <span class="tag">
-                        Facilitation
-                    </span>
-
-                    <span class="tag">
-                        Adaptability
-                    </span>
+                    <span class="tag">Communication</span>
+                    <span class="tag">Planning</span>
+                    <span class="tag">Facilitation</span>
+                    <span class="tag">Adaptability</span>
 
                 </div>
 
 
-                <div class="experience-gallery standard-4-3">
+                <div class="experience-gallery seminary-gallery">
 
                     <div class="experience-photo">
-                        <img
-                            src="sem 1.jpeg"
-                            alt="Seminary teaching">
+                        <img src="sem 1.jpeg" alt="Seminary teaching">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="sem 2.jpeg"
-                            alt="Seminary teaching">
+                        <img src="sem 2.jpeg" alt="Seminary teaching">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="FSY.jpg"
-                            alt="Seminary activity">
+                        <img src="FSY.jpg" alt="Seminary activity">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="fsy 1.jpg"
-                            alt="Seminary activity">
+                        <img src="fsy 1.jpg" alt="Seminary activity">
                     </div>
 
                 </div>
@@ -1023,17 +1031,9 @@
 
                 <div class="tags">
 
-                    <span class="tag">
-                        Reliability
-                    </span>
-
-                    <span class="tag">
-                        Attention to Detail
-                    </span>
-
-                    <span class="tag">
-                        Time Management
-                    </span>
+                    <span class="tag">Reliability</span>
+                    <span class="tag">Attention to Detail</span>
+                    <span class="tag">Time Management</span>
 
                 </div>
 
@@ -1079,25 +1079,11 @@
 
                 <div class="tags">
 
-                    <span class="tag">
-                        Scheduling
-                    </span>
-
-                    <span class="tag">
-                        Adaptability
-                    </span>
-
-                    <span class="tag">
-                        Teamwork
-                    </span>
-
-                    <span class="tag">
-                        Communication
-                    </span>
-
-                    <span class="tag">
-                        Planning
-                    </span>
+                    <span class="tag">Scheduling</span>
+                    <span class="tag">Adaptability</span>
+                    <span class="tag">Teamwork</span>
+                    <span class="tag">Communication</span>
+                    <span class="tag">Planning</span>
 
                 </div>
 
@@ -1105,27 +1091,19 @@
                 <div class="experience-gallery missionary-gallery">
 
                     <div class="experience-photo">
-                        <img
-                            src="First pic.jpeg"
-                            alt="Full-time missionary">
+                        <img src="First pic.jpeg" alt="Full-time missionary">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="2nd.jpeg"
-                            alt="Full-time missionary">
+                        <img src="2nd.jpeg" alt="Full-time missionary">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="3rd.jpeg"
-                            alt="Full-time missionary">
+                        <img src="3rd.jpeg" alt="Full-time missionary">
                     </div>
 
                     <div class="experience-photo">
-                        <img
-                            src="4th.jpeg"
-                            alt="Full-time missionary">
+                        <img src="4th.jpeg" alt="Full-time missionary">
                     </div>
 
                 </div>
@@ -1140,7 +1118,7 @@
 
 
 <!-- =========================
-     SKILLS & TOOLS
+     SKILLS
 ========================= -->
 
 <section id="skills">
@@ -1156,7 +1134,6 @@
             and support day-to-day operations.
         </p>
 
-
         <div class="skills-grid">
 
 
@@ -1165,7 +1142,6 @@
                 <h3>
                     Financial & Data
                 </h3>
-
 
                 <div class="skill">
 
@@ -1180,7 +1156,6 @@
 
                 </div>
 
-
                 <div class="skill">
 
                     <strong>
@@ -1194,7 +1169,6 @@
 
                 </div>
 
-
                 <div class="skill">
 
                     <strong>
@@ -1207,7 +1181,6 @@
                     </p>
 
                 </div>
-
 
                 <div class="skill">
 
@@ -1231,7 +1204,6 @@
                     Communication & Coordination
                 </h3>
 
-
                 <div class="skill">
 
                     <strong>
@@ -1244,7 +1216,6 @@
                     </p>
 
                 </div>
-
 
                 <div class="skill">
 
@@ -1259,7 +1230,6 @@
 
                 </div>
 
-
                 <div class="skill">
 
                     <strong>
@@ -1272,7 +1242,6 @@
                     </p>
 
                 </div>
-
 
                 <div class="skill">
 
@@ -1296,7 +1265,6 @@
                     Operations
                 </h3>
 
-
                 <div class="skill">
 
                     <strong>
@@ -1309,7 +1277,6 @@
                     </p>
 
                 </div>
-
 
                 <div class="skill">
 
@@ -1324,7 +1291,6 @@
 
                 </div>
 
-
                 <div class="skill">
 
                     <strong>
@@ -1337,7 +1303,6 @@
                     </p>
 
                 </div>
-
 
                 <div class="skill">
 
