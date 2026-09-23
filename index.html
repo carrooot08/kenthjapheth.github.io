@@ -304,6 +304,11 @@
             font-size: 13px;
         }
 
+
+        /* =========================
+           EXPERIENCE GALLERIES
+        ========================= */
+
         .experience-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -311,17 +316,36 @@
             margin-top: 25px;
         }
 
-        .experience-photo {
-            width: 100%;
-            height: 260px;
-            overflow: hidden;
-            border-radius: 22px;
-            background: #e8dccb;
+        /*
+           Financial & Administrative Support
+           and Seminary photos are 2048 x 1536 (4:3).
+           The frame follows the same 4:3 ratio so the
+           original photos fill the frame without cropping
+           or stretching.
+        */
+
+        .experience-gallery.standard-4-3 .experience-photo {
+            aspect-ratio: 4 / 3;
+            height: auto;
         }
 
-        /* FULL PICTURE VISIBLE — NO CROPPING */
+        .experience-gallery.standard-4-3 .experience-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        .experience-photo img {
+        /*
+           Full-Time Missionary photos
+           Keep all four photos in identical frames.
+        */
+
+        .experience-gallery.missionary-gallery .experience-photo {
+            width: 100%;
+            height: 260px;
+        }
+
+        .experience-gallery.missionary-gallery .experience-photo img {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -437,8 +461,14 @@
             font-size: 18px;
         }
 
-        .contact-item span {
+        .contact-item span,
+        .contact-item a {
             font-size: 15px;
+            color: inherit;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
         }
 
 
@@ -527,7 +557,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .experience-photo {
+            .experience-gallery.standard-4-3 .experience-photo {
+                aspect-ratio: 4 / 3;
+                height: auto;
+            }
+
+            .experience-gallery.missionary-gallery .experience-photo {
                 height: 300px;
             }
 
@@ -849,7 +884,7 @@
                 </div>
 
 
-                <div class="experience-gallery">
+                <div class="experience-gallery standard-4-3">
 
                     <div class="experience-photo">
                         <img
@@ -928,7 +963,7 @@
                 </div>
 
 
-                <div class="experience-gallery">
+                <div class="experience-gallery standard-4-3">
 
                     <div class="experience-photo">
                         <img
@@ -1067,38 +1102,30 @@
                 </div>
 
 
-                <div class="experience-gallery">
+                <div class="experience-gallery missionary-gallery">
 
                     <div class="experience-photo">
-
                         <img
                             src="First pic.jpeg"
                             alt="Full-time missionary">
-
                     </div>
 
                     <div class="experience-photo">
-
                         <img
                             src="2nd.jpeg"
                             alt="Full-time missionary">
-
                     </div>
 
                     <div class="experience-photo">
-
                         <img
                             src="3rd.jpeg"
                             alt="Full-time missionary">
-
                     </div>
 
                     <div class="experience-photo">
-
                         <img
                             src="4th.jpeg"
                             alt="Full-time missionary">
-
                     </div>
 
                 </div>
@@ -1368,9 +1395,9 @@
                     Email
                 </strong>
 
-                <span>
+                <a href="mailto:kenth.manuel11@gmail.com">
                     kenth.manuel11@gmail.com
-                </span>
+                </a>
 
             </div>
 
